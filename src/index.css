@@ -1,13 +1,118 @@
-body {
+*{
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  border: 1px solid black;
+  
 }
+/* body.modal-open {
+  width: 30%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  margin: auto;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+header{
+  background-color: #e59898;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  height: 5%;
+  /* background-color: red; */
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 25.5%;
+ 
+}
+h1{
+  color: aliceblue;
+  
+}
+input[type="text"] {
+  height: fit-content;
+  width: 30%;
+  padding: 3px 0;
+  cursor: pointer;
+}
+
+.main {
+  background: #e5989859;
+  width: 100%;
+  max-width: ;
+  height: fit-content;
+  border: 1px solid black;
+  /* display: flex; */
+  padding: 0 5rem 0 5rem;
+  margin: 1.25rem 0.5rem;
+  justify-content: center;
+  /* flex-flow: column; */
+  width: 50%;
+  height: 50%;
+  /* background-color: red; */
+  align-items: center;
+  margin: 0 auto;
+  list-style-position: inside;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 27%;
+  margin: -25px 0 0 -25px;
+
+}
+
+ol{
+  margin: revert;
+}
+li {
+  display: list-item;
+  padding: 6px;
+  margin: 15px;
+}
+button {
+  width: 75px;
+  height: 30px;
+  margin: 5px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: cadetblue;
+  color: aliceblue;
+}
+
+footer{
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  text-align: center;
+  height:25px;
+  background-color: #e59898;
+  color: aliceblue;
+  font-size: 25px;
+  width: 50%;
+  height: 5%;
+  /* background-color: red; */
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  bottom: 15%;
+  left: 25.5%;
+
 }
