@@ -1,34 +1,122 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-const AddTask = ({handleAddTask, setList, lists, task}) => {
-  const [newTask, setNewTask] = useState('');
+function RegistrationView() {
+  const [inputValues, setInputValue] = useState({
+    task: "",
+    description: "",
+  
+    date: "",
+  });
 
-  const handleInput= (e) =>{
-    setNewTask(e.target.value);
+  const [validation, setValidation] = useState({
+    task: "",
+    description: "",
+  
+   date: "",
+  });
+
+
+  //handle submit updates
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setInputValue({ ...inputValues, [name]: value });
   }
 
-  const handleSubmit= (e) =>{
-    e.preventDefault();
-    if(newTask !==""){
-      setList([...lists,{id:lists.length +1, task: newTask.trim()}
-      ]);
-      console.log(lists);
+  const checkValidation = () => {
+    let errors = validation;
+
+    //first Name validation
+    if (!inputValues.task) {
+      errors.task = "First name is required";
+    } else {
+      errors.task = "";
     }
-    // if (!newTask) return;
-    //handleAddTask(newTask);
-    //setNewTask("");
-    console.log(newTask);
-   
-  }
+    //last Name validation
+    if (!inputValues.description.trim()) {
+      errors.description = "Last name is required";
+    } else {
+      errors.description = "";
+    }
+
+
+    if (!inputValues.date) {
+      errors.date = "password is required";
+    } else {
+      errors.date = "";
+    }
+
+
+    setValidation(errors);
+  };
+
+  useEffect(() => {
+    checkValidation();
+  }, [inputValues]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
-           <form onSubmit={handleSubmit}> 
-              <input type='text' name='newTask' value={newTask} required placeholder='Add Task Here' onChange={handleInput} />
-              <button type='submit' onClick={() => handleAddTask()}> Add Task </button>
-            </form>
+      <div className="sign-up-form">
+        <form
+          id="registrationForm"
+          action="/"
+          method="POST"
+          onSubmit={handleSubmit}
+        >
+          <div className="form-control">
+            <input
+              placeholder="First Name"
+              type="string"
+              name="task"
+              id="task"
+              className="input-field"
+              onChange={(e) => handleChange(e)}
+              value={inputValues.task}
+            />
+            {validation.task && <p>{validation.task}</p>}
+            {validation.task && console.log(validation)}
+          </div>
+          <div className="form-control">
+            <input
+              placeholder="Last Name"
+              type="string"
+              id="description"
+              name="description"
+              className="input-field"
+              onChange={(e) => handleChange(e)}
+              value={inputValues.lName}
+            />
+            {validation.lName && <p>{validation.lName}</p>}
+          </div>
+         
+          
+
+          <div className="form-control">
+            <input
+              placeholder="date"
+              type="date"
+              name="date"
+              className="input-field"
+              onChange={(e) => handleChange(e)}
+              value={inputValues.date}
+              
+            />
+            {validation.date && <p>{validation.date}</p>}
+          </div>
+          
+          <button type="submit" id="submit-button">
+            submit
+          </button>
+          <span className="form-input-login">
+            Already have an account? Login <a href="#">here</a>
+          </span>
+        </form>
+      </div>
     </div>
-  )
+  );
 }
 
-export default AddTask;
+export default RegistrationView;
